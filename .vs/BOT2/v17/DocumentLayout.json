@@ -1,0 +1,53 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Local projects\\HSE-programming\\BOT2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Local projects\\HSE-programming\\BOT2\\main.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:main.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "main.py",
+              "DocumentMoniker": "C:\\Local projects\\HSE-programming\\BOT2\\main.py",
+              "RelativeDocumentMoniker": "main.py",
+              "ToolTip": "C:\\Local projects\\HSE-programming\\BOT2\\main.py*",
+              "RelativeToolTip": "main.py*",
+              "ViewState": "AgIAAGoAAAAAAAAAAAAswD4BAAAAAAAAAAAAAA==",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd\u002BUAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAVoSURBVEhLvZZfbBxXFcZ/d3a8sdeud7Ouk8hVZHvTlWUcCI4qFClEChGlZR/8gJDyENSKCoEwkSpFwS8g9YHyYkQEPKStIkQaiopIgxqQVSKslOBSt1vHCYViO45rnGzszdpeZ//F3pm55/KwNbInmzXqA5/0aTTn3Pt9OmfuuRr4f8IYo/wxgFAo9Jht2yF/fAtoIJ3P5\u002B/7ExtR1TCRSAwfPnz4iG3b/lRVZDIZisXiouM4P7l06dIrc3NzBf\u002BadTzU8MyZM0cikYg/VRVDQ0Pkcrl7mUxmeXZ29uzIyMjPpqamSv51AJY/8GmxZ8\u002BeSF9fX7Sjo\u002BPYgQMHTvb09DT61wAE/AGAeDz\u002BTF9fX2cwGGRycpKlpaUHmM1miUajKKWYnp4mFArR09PTEIvFts3Pzz8aDAZ3aq2Ti4uL7kbtLSvs6Oioyvb2dpR68Ivs2rXrkWPHjnXFYrFEJBLp9\u002BdrGiqlCAaDD\u002BU6LMvi/PnzDAwMcPLkSQYHBxvT6fR\u002BILZJ8GFIJBLDd\u002B7ckUKhIKOjo1WZTCalUChIqVSSXC4ny8vLm5hMJuXgwYMv\u002BbW3rHDv3r1V2d3dTSAQQFA4xqJsbBzqwA4SCoU2dWAjahoCLCwsVOVa2WEifZ8/XEvz\u002Bnu3OPfOLOdGZnjtnRn\u002BdD2FYwK0tLT45WobGmOwbbsqPWXzxthtbq\u002BUGPt4iT9/mOKt8TneePcmr1z6ByMzOT63b59fsrahUoodO3ZUZVksFrL3iT3aSLjeRrTGiIdoTa64ytRCgW88\u002B1zg6NGjm0avpqExhvHx8ap0tZBeKXDuyg0mbi\u002BjtUZ7gmiNFo32NDt27rLa2tqqzvomrJ/SYrEo\u002BXxe8vm8FAoFWckVZezjJfnj1Vvy\u002B\u002BS/5Tcj0/LrK5Py6tsT8sLro/LlH/5OvnDinDzx/K/kuZ9ekHvZf4oU/iqyOrUoeu1ENBoNPDi5G\u002B7ScDhMsVjEtm1cFeS3H9zh7Y/SlB0P0S6eV2mh1i7iabT20J5GPI997Q384llDo1wFY0HzUU3oicSWLb179y7ZbJaPbmf5cG6FsuMi4qK1h4hG9Lpp5SnaQ4xHQAkBHBAN\u002Bj4UrwSA79Q0VEoRi8XYvXs3BVeRLaxWBD1dEV\u002BvcP1da0Q04YYgh7pDBCUFeq3CtUkw\u002Bos1W9rc3MzMzAzhcJjReeHsX6bR2kV7HsoY9nc8wqE4bAuUMcZ8QiFcX\u002BKzrXM0W7MgZTAOaAc6XjU1K6RyGROJRAgoUAjiCaKF\u002BM56vv9khkT8XZ7c8wFfeXyMp\u002BJXefrxJAcfG6PZmgG9CvJJhboMqk7VNFRK0dTURH19PdtDdTQFLbSptC3R20Jr3TVsclimgCU5LG8Jy1sEd8VntgZ1baDqbtQ0NMZw/fp1JiYmaG0wdLQ0orSH1h7bQ4JCwJjKwfA2iOu1iqFeq8RFQ9NhQanXahpalkVvby9dXV10t\u002B/kawc6OfSZNvbHWgk3bgMjIC7IKmBANYJqBqsZ7FbY1gUNeyH89Brbnxq/fPnyy34P2DD4pVJpE1dXV8VxHHEcR6R8SyT1XZFb3xKZfUZk7tsiqRdEUi\u002BKpH4kkn5JxC1Misgvh4aGfnz69Oletrra/BARXNfFdd3K1o0tdDJQHAMrCHYrpvR3jPH\u002BdvHixe8dP378B/39/df8ev9FIpEYHhwclFOnTj2U6flpkdSAyM2vi9zoE5n4qsi/jojMDoikBsWde3H5zTcvnOjs7NykXXUO/5cf4cXFzOfrJPUy997aTjEJzjwgEIxjwkeMNH3p/TNnL3yzv79/yr/3UyEajSpjTNwY83NjzE1jjGOMKRljRo0xzw8PDzf79wD8B\u002BTgbofXv6L5AAAAAElFTkSuQmCC",
+              "WhenOpened": "2025-05-18T23:12:55.883Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
