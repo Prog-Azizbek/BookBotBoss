@@ -44,13 +44,13 @@ async def button_callback_handler(update: Update, context: ContextTypes.DEFAULT_
                 await query.edit_message_text(text="Ошибка: Услуга не найдена.") # Редактируем исходное сообщение кнопки
                 return
 
-            # Ищем доступные слоты для этой услуги (только будущие и is_available=True)
+            # Ищем доступные слоты для этой услуги
             now = datetime.now()
             available_slots = db.query(TimeSlot).filter(
                 TimeSlot.service_id == service_id,
                 TimeSlot.is_available == True,
                 TimeSlot.start_time > now # Только будущие слоты
-            ).order_by(TimeSlot.start_time).limit(10).all() # Ограничим вывод 10 слотами для начала (пагинация потом)
+            ).order_by(TimeSlot.start_time).limit(10).all() 
 
             if not available_slots:
                 await query.edit_message_text(
@@ -63,8 +63,6 @@ async def button_callback_handler(update: Update, context: ContextTypes.DEFAULT_
             slots_keyboard = []
             slots_text = f"<b>Доступные слоты для '{service_info.name}':</b>\n\n"
             
-            # Если редактируем сообщение, где была кнопка "Показать слоты", то старый текст и кнопки исчезнут
-            # Это нормальное поведение для edit_message_text
             
             for slot in available_slots:
                 slots_text += f"🗓️ {slot.start_time.strftime('%Y-%m-%d %H:%M')} - {slot.end_time.strftime('%H:%M')}\n"
@@ -75,9 +73,9 @@ async def button_callback_handler(update: Update, context: ContextTypes.DEFAULT_
                     )
                 ])
             
-            # Кнопка "Назад к списку услуг" (если нужно)
+            # Кнопка "Назад к списку услуг"
             # slots_keyboard.append([InlineKeyboardButton("⬅️ Назад к услугам", callback_data="back_to_services")])
-            # Для этого потребуется сохранить состояние или просто вызывать /services снова
+            # Добавить сохранить состояние или вызывать /services снова
 
             reply_markup_slots = InlineKeyboardMarkup(slots_keyboard)
             await query.edit_message_text(text=slots_text, reply_markup=reply_markup_slots, parse_mode=ParseMode.HTML)
@@ -98,32 +96,19 @@ async def button_callback_handler(update: Update, context: ContextTypes.DEFAULT_
                 # Можно предложить вернуться к выбору слотов для этой услуги или к общему списку услуг
                 return
 
-            # Проверяем, нет ли у этого клиента уже бронирования на это же время (для других услуг/провайдеров)
-            # Это более сложная проверка, для MVP можно опустить, но в реальной системе важна.
-            # existing_client_booking_at_time = db.query(Booking).join(TimeSlot)\
-            # .filter(Booking.client_telegram_id == user_telegram_id,
-            # TimeSlot.start_time < slot_to_book.end_time,
-            # TimeSlot.end_time > slot_to_book.start_time,
-            # Booking.status == 'confirmed' # или другие активные статусы
-            # ).first()
-            # if existing_client_booking_at_time:
-            # await query.edit_message_text(text="У вас уже есть другое бронирование на это время. Пожалуйста, отмените его или выберите другое время.")
-            # return
-
 
             # Создаем бронирование
             new_booking = Booking(
                 slot_id=slot_to_book.slot_id,
                 client_telegram_id=user_telegram_id,
-                status="confirmed" # Статус по умолчанию 'confirmed'
+                status="confirmed"
             )
             slot_to_book.is_available = False # Делаем слот недоступным
 
             db.add(new_booking)
-            db.add(slot_to_book) # SQLAlchemy отследит изменения в slot_to_book
+            db.add(slot_to_book)
             db.commit()
             db.refresh(new_booking)
-            # db.refresh(slot_to_book) # Не обязательно, если не используем его поля ниже
 
             # Получаем информацию об услуге и провайдере для уведомления
             service_booked = slot_to_book.service # Через relationship
@@ -155,13 +140,6 @@ async def button_callback_handler(update: Update, context: ContextTypes.DEFAULT_
                 logger.info(f"Notification sent to provider {provider_telegram_id} for booking {new_booking.booking_id}")
             except Exception as e_notify:
                 logger.error(f"Failed to send notification to provider {provider_telegram_id} for booking {new_booking.booking_id}: {e_notify}")
-                # Ошибку уведомления не показываем клиенту, но логируем
-
-        # elif callback_data == "back_to_services":
-        # # Нужно либо заново вызвать list_available_services, либо как-то "откатить" сообщение
-        # # Проще всего - попросить пользователя снова ввести /services
-        # await query.message.reply_text("Для просмотра списка всех услуг, пожалуйста, используйте команду /services")
-        # await query.delete_message() # Удаляем сообщение с кнопками слотов
 
         elif callback_data.startswith("cancel_booking_client_"):
             booking_id_to_cancel = int(callback_data.split("_")[3]) 
@@ -169,7 +147,6 @@ async def button_callback_handler(update: Update, context: ContextTypes.DEFAULT_
             booking_to_cancel = db.query(Booking).filter(
                 Booking.booking_id == booking_id_to_cancel,
                 Booking.client_telegram_id == user_telegram_id,
-                # Booking.status == "confirmed" # Уже не важно, если мы просто удаляем
             ).first()
 
             if not booking_to_cancel:
@@ -219,16 +196,13 @@ async def button_callback_handler(update: Update, context: ContextTypes.DEFAULT_
 
     except Exception as e:
         logger.error(f"Error in button_callback_handler (callback_data: {query.data if query else 'N/A'}) for user {user_telegram_id if query else 'N/A'}: {e}")
-        # В случае ошибки можно попробовать отправить сообщение в чат, если edit_message_text не сработает
         try:
             await query.edit_message_text("Произошла непредвиденная ошибка при обработке вашего запроса.")
         except Exception as e_edit_fallback:
              logger.error(f"Fallback edit_message_text also failed: {e_edit_fallback}")
-             # Если и это не сработало, можно попробовать context.bot.send_message, если есть query.message.chat_id
              if query and query.message:
                  await context.bot.send_message(chat_id=query.message.chat_id, text="Произошла ошибка. Попробуйте снова.")
     except Exception as e:
-        # ...
         pass
     finally:
         db.close()
