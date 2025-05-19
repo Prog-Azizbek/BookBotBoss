@@ -1,0 +1,26 @@
+# Файлы виртуального окружения
+venv/
+*.venv/
+env/
+ENV/
+.env
+
+
+# Файлы IDE и системные файлы
+.idea/
+.vscode/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*~
+*.swp
+.DS_Store
+Thumbs.db
+
+# Файл с токеном 
+config.py 
+
+# Логи 
+*.log
+logs/
